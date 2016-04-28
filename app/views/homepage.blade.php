@@ -14,12 +14,16 @@ function jqUpdateSize(){
 
     console.log("Width is: " + width);      // Display the width
     console.log("Height is: " + height);    // Display the height
-    if(width <= 1300 && width >= 1000) {
+    if(width <= 1300 && width >= 1150) {
     	$("#landingbody").attr("class", "landingpagelarge");
+    } else if(width < 1150 && width >= 1000) {
+    	$("#landingbody").attr("class", "landingpagemidlarge");
     } else if(width < 1000 && width >= 800) {
     	$("#landingbody").attr("class", "landingpage");
-    } else if (width < 800 && width > 420){
+    } else if (width < 800 && width > 610){
     	$("#landingbody").attr("class", "landingpagemedium");
+    } else if(width < 610 && width > 420) {
+    	$("#landingbody").attr("class", "landingpagemidmedium");
     } else if (width <= 420) {
     	$("#landingbody").attr("class", "landingpagesmall");
     }

@@ -30,12 +30,19 @@ body {
 	background-repeat: no-repeat;
 	background-size: 1300px 650px;
 }
+.landingpagemidlarge {
+	overflow-y: hidden;
+	overflow: hidden;
+	background-image: url(/img/landing.png);
+	background-repeat: no-repeat;
+	background-size: 1150px 600px;
+}
 .landingpage {
 	overflow-y: hidden;
 	overflow: hidden;
 	background-image: url(/img/landing.png);
 	background-repeat: no-repeat;
-	background-size: 1220px 650px;
+	background-size: 1000px 650px;
 }
 .landingpagemedium {
 	overflow-y: hidden;
@@ -43,6 +50,13 @@ body {
 	background-image: url(/img/landing.png);
 	background-repeat: no-repeat;
 	background-size: 800px 650px;
+}
+.landingpagemidmedium {
+	overflow-y: hidden;
+	overflow: hidden;
+	background-image: url(/img/landing.png);
+	background-repeat: no-repeat;
+	background-size: 600px 600px;
 }
 .landingpagesmall {
 	overflow-y: hidden;
