@@ -13,6 +13,8 @@
 
 Route::get('/', 'HomeController@homepage');
 
+Route::get('/create');
+
 Route::get('/subscribe', 'HomeController@subscribe');
 
 Route::post('/subscribe', 'HomeController@dosubscribe');
