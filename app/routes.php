@@ -13,7 +13,9 @@
 
 Route::get('/', 'HomeController@homepage');
 
-Route::get('/create');
+Route::get('/create', 'HomeController@create');
+
+Route::post('/create', 'HomeController@store');
 
 Route::get('/subscribe', 'HomeController@subscribe');
 

@@ -19,6 +19,17 @@ class HomeController extends BaseController {
 		return View::make('homepage');
 	}
 
+	public function create() {
+		return View::make('create');
+	}
+	public function store() {
+		$review = new Review();
+		$review->title = Input::get('title');
+		$review->slug = Input::get('slug');
+		$review->body = Input::get('body');
+		$review->save(); 
+		return Redirect::action('HomeController@index');
+	}
 	public function subscribe() {
 		return View::make('subscribe');
 	}
