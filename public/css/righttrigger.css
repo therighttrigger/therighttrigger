@@ -1,0 +1,88 @@
+.navbar {
+	background-color: #444;
+	color: #f90000;
+	/*padding-top: 1%;*/
+}
+.navlink {
+	color: #ffa600;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+.navlink:hover {
+	background-color: #ffa600;
+	color: #444;
+	border: 1.98px solid #ffa600;
+}
+body {
+	background-color: #C0C0C0;
+}
+.footer {
+	background-color: #444;
+	color: #ffa600;
+	padding-top: 1.5%;
+	padding-bottom: 3%;
+	margin-top: 0%;
+}
+.landingpage {
+	overflow-y: hidden;
+	overflow: hidden;
+}
+.sitename {
+	background-color: #444;
+	color: #ffa600;
+	font-size: 100px;
+	margin-top: -2%;
+	padding-top: 10%;
+	padding-bottom: 10%;
+	/*overflow-x: hidden;
+	overflow-y: hidden;*/
+}
+.motto {
+	font-size: 80px;
+	color: #444;
+	background-color: #ffa600;
+	padding-top: 6%;
+	padding-bottom: 6%;
+	margin-top: -2%;
+	margin-bottom: -1%;
+}
+.summary {
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-top: 5%;
+}
+.summary>a {
+	color: #ffa600;
+	background-color: #444;
+}
+.subscriptionform {
+	/*margin-left: 43%;
+	margin-right: 37%;*/
+	margin-top: 6%;
+	margin-bottom: 6%;
+}
+.subscriptionformmedium {
+	margin-top: 15%;
+	/*margin-right: 20%;
+	margin-left: 40%;*/
+}
+.subscriptionformsmall {
+	/*margin-left: 30%;
+	margin-right: 15%;*/
+	margin-top: 30%;
+}
+.commentform {
+	margin-top: 6%;
+}
+.commentformmedium {
+	margin-top: 15%;
+}
+.commentformsmall {
+	margin-top: 30%;
+}
+.topofpage {
+	margin-top: 5%;
+}
+.bottomofpage {
+	margin-bottom: 10%;
+}
