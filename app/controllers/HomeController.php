@@ -19,8 +19,28 @@ class HomeController extends BaseController {
 		return View::make('homepage');
 	}
 
+	public function verify() {
+		return View::make('verification');
+	}
+
+	public function check() {
+		$name = Input::get('name');
+		$password = Input::get('password');
+		if(Auth::attempt(array('name' => $name, 'password' => $password))) {
+			return Redirect::action('HomeController@create');
+		} else {
+			Session::flash('errorMessage', "You are not authorized to post a review");
+			return Redirect::action('HomeController@homepage');
+		}
+
+		
+	}
 	public function create() {
-		return View::make('create');
+		if(Auth::check()) {
+			return View::make('create');
+		} else {
+			return Redirect::action('HomeController@verify');
+		}
 	}
 	public function store() {
 		$review = new Review();
@@ -29,6 +49,33 @@ class HomeController extends BaseController {
 		$review->body = Input::get('body');
 		$review->save(); 
 		return Redirect::action('HomeController@index');
+	}
+
+	public function edit($slug) {
+		if(Auth::check()) {
+			$review = DB::table('reviews')->where('slug', $slug)->pluck('id');
+			$reviewtoedit = Review::find($review);
+			return View::make('edit')->with('reviewtoedit', $reviewtoedit);
+		} else {
+			Session::flash('errorMessage', 'You are not authorized to edit this post');
+			return Redirect::action('HomeController@homepage');
+		}
+	}
+	public function update($slug) {
+		if(Auth::check()) {
+			$review = DB::table('reviews')->where('slug', $slug)->pluck('id');
+			$reviewtoupdate = Review::find($review);
+			$reviewtoupdate->title = Input::get('title');
+			$reviewtoupdate->slug = Input::get('slug');
+			$reviewtoupdate->body = Input::get('body');
+			$reviewtoupdate->save();
+			Session::flash('successMessage', 'Review sucessfully edited');
+			return Redirect::action('HomeController@index');
+		} else {
+			Session::flash('errorMessage', 'You are not authorized to edit this post');
+			return Redirect::action('HomeController@homepage');
+		}
+
 	}
 	public function subscribe() {
 		return View::make('subscribe');

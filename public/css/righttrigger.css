@@ -23,9 +23,33 @@ body {
 	padding-bottom: 3%;
 	margin-top: 0%;
 }
+.landingpagelarge {
+	overflow-y: hidden;
+	overflow: hidden;
+	background-image: url(/img/landing.png);
+	background-repeat: no-repeat;
+	background-size: 1300px 650px;
+}
 .landingpage {
 	overflow-y: hidden;
 	overflow: hidden;
+	background-image: url(/img/landing.png);
+	background-repeat: no-repeat;
+	background-size: 1220px 650px;
+}
+.landingpagemedium {
+	overflow-y: hidden;
+	overflow: hidden;
+	background-image: url(/img/landing.png);
+	background-repeat: no-repeat;
+	background-size: 800px 650px;
+}
+.landingpagesmall {
+	overflow-y: hidden;
+	overflow: hidden;
+	background-image: url(/img/landing.png);
+	background-repeat: no-repeat;
+	background-size: 400px 650px;
 }
 .sitename {
 	background-color: #444;
@@ -51,6 +75,7 @@ body {
 	margin-right: 15%;
 	margin-top: 5%;
 }
+
 .summary>a {
 	color: #ffa600;
 	background-color: #444;

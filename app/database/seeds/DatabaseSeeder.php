@@ -11,13 +11,16 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		DB::table('reviews')->delete();
+		// DB::table('reviews')->delete();
 		DB::table('subscribers')->delete();
+		DB::table('comments')->delete();
+		DB::table('users')->delete();
 		
 
-		$this->call('ReviewsSeeder');
+		// $this->call('ReviewsSeeder');
 		$this->call('SubscribersSeeder');
 		$this->call('CommentsSeeder');
+		$this->call('AdminSeeder');
 	}
 
 }

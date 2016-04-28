@@ -2,12 +2,12 @@
 @section('content')
 <div class="text-center">
 	<h1>Reviews</h1>
-	@foreach($reviews as $review)
-	<div class="summary">
-		<a href="/reviews/{{{$review->slug}}}">{{{$review->title}}}</a>
-		<br>
-			{{{Str::limit($review->body, 300)}}}
-	</div>
-	@endforeach
+	<ul>
+		@foreach($reviews as $review)
+		<div class="summary">
+			<li><h4 class="summary"><a href="/reviews/{{{$review->slug}}}">{{{$review->title}}}</a></h4></li>
+		</div>
+		@endforeach
+	</ul>
 </div>
 @stop
