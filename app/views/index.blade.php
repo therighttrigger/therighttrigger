@@ -6,13 +6,8 @@
 		<div class="summary text-center">
 			<li><h4 class="summary">
 				<div class="row">
-					<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-						<div class="col-xs-hidden">
-							<img src="/img/button.png">
-						</div>
-						<div class="col-xs-8 col-xs-offset-2">
-							<a href="/reviews/{{{$review->slug}}}">{{{$review->title}}}</a>
-						</div>
+					<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+						<a href="/reviews/{{{$review->slug}}}">{{{$review->title}}}</a>
 					</div>
 				</div>
 			</h4></li>
