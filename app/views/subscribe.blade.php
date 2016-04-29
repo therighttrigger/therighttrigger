@@ -45,7 +45,7 @@ function jqUpdateSize(){
     } else if (width < 800 && width > 420){
     	$("#formarea").attr("class", "subscriptionformmedium col-sm-8 col-sm-offset-4 col-xs-10 col-xs-offset-3");
     } else if (width <= 420) {
-    	$("#formarea").attr("class", "subscriptionformsmall col-xs-10 col-xs-offset-2");
+    	$("#formarea").attr("class", "subscriptionformsmall col-xs-8 col-xs-offset-3");
     }
 };
 $(document).ready(jqUpdateSize);

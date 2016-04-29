@@ -51,6 +51,12 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 });
 
+App::missing(function($exception) {
+	return Response::view('notfound', array(), 404);
+});
+// App::unauthorized(function($exception) {
+// 	return Response::view('unauthorized', array(), 403);
+// });
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler

@@ -41,7 +41,7 @@ function jqUpdateSize(){
     } else if (width < 800 && width > 420){
     	$("#contactform").attr("class", "commentformmedium col-sm-8 col-sm-offset-4 col-xs-8 col-xs-offset-4");
     } else if (width <= 420) {
-    	$("#contactform").attr("class", "commentformsmall col-xs-8 col-xs-offset-4");
+    	$("#contactform").attr("class", "commentformsmall col-xs-8 col-xs-offset-3");
     }
 };
 $(document).ready(jqUpdateSize);

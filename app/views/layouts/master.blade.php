@@ -2,12 +2,21 @@
 <html>
 <head>
 	<title>The Right Trigger Reviews: Fair, Biased, Truthful</title>
+	<link rel="icon" type="image/png" href="/img/button.png">
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="/css/righttrigger.css">
 	@yield('top-script')
 </head>
 <body>
 	<div class="navbar navbar-fixed-top">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+				<img src="/img/button.png">
+				<span class="heading">The Right Trigger</span>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+			</div>
+		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 			<a href="{{{action('HomeController@homepage')}}}">
 				<div class="navlink col-lg-3 col-md-3 col-sm-3 col-xs-3">

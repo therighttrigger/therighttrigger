@@ -132,7 +132,11 @@ class HomeController extends BaseController {
 	public function showreview($slug) {
 		$reviewtitle = DB::table('reviews')->where('slug', $slug)->pluck('title');
 		$reviewbody = DB::table('reviews')->where('slug', $slug)->pluck('body');
-		return View::make('show')->with('reviewtitle', $reviewtitle)->with('reviewbody', $reviewbody);
+		if($reviewtitle != null) {
+			return View::make('show')->with('reviewtitle', $reviewtitle)->with('reviewbody', $reviewbody);
+		} else {
+			App::abort(404);
+		}
 	}
 
 }

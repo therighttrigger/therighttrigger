@@ -36,3 +36,5 @@ Route::get('/reviews/{slug}', 'HomeController@showreview');
 Route::get('/reviews/{slug}/edit', 'HomeController@edit');
 
 Route::post('/reviews/{slug}/edit', 'HomeController@update');
+
+Route::get('/unauthorized', 'HomeController@unauthorized');

@@ -6,12 +6,16 @@
 .navlink {
 	color: #ffa600;
 	padding-top: 1%;
-	padding-bottom: 1%;
+	padding-bottom: .5%;
 }
 .navlink:hover {
 	background-color: #ffa600;
 	color: #444;
-	border: 1.98px solid #ffa600;
+	border: 0px solid #ffa600;
+}
+.heading {
+	color: #ffa600;
+	font-size: 20px;
 }
 body {
 	background-color: #C0C0C0;
@@ -20,7 +24,7 @@ body {
 	background-color: #444;
 	color: #ffa600;
 	padding-top: 1.5%;
-	padding-bottom: 3%;
+	padding-bottom: 1.5%;
 	margin-top: 0%;
 }
 .landingpagelarge {
@@ -42,7 +46,7 @@ body {
 	overflow: hidden;
 	background-image: url(/img/landing.png);
 	background-repeat: no-repeat;
-	background-size: 1000px 650px;
+	/*background-size: 1000px 650px;*/
 }
 .landingpagemedium {
 	overflow-y: hidden;
@@ -85,14 +89,21 @@ body {
 	margin-bottom: -1%;
 }
 .summary {
-	margin-left: 15%;
-	margin-right: 15%;
+	/*margin-left: 15%;
+	margin-right: 15%;*/
 	margin-top: 5%;
+	list-style-type: none;
 }
-
+.reviewindexheading {
+	margin-top: 15%;
+}
 .summary>a {
-	color: #ffa600;
-	background-color: #444;
+	color: #e68a00;
+	/*background-color: #444;*/
+	list-style-type: none;
+}
+a:hover {
+	text-decoration: none;
 }
 .subscriptionform {
 	/*margin-left: 43%;
@@ -110,6 +121,13 @@ body {
 	margin-right: 15%;*/
 	margin-top: 30%;
 }
+.notfoundhead {
+	margin-top: 15%;
+}
+.notfound {
+	width: 75%;
+	height: 50%;
+}
 .commentform {
 	margin-top: 6%;
 }
@@ -120,7 +138,7 @@ body {
 	margin-top: 30%;
 }
 .topofpage {
-	margin-top: 5%;
+	margin-top: 8%;
 }
 .bottomofpage {
 	margin-bottom: 10%;
