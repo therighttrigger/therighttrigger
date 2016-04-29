@@ -34,8 +34,6 @@ function jqUpdateSize(){
     var width = $(window).width();
     var height = $(window).height();
 
-    console.log("Width is: " + width);      // Display the width
-    console.log("Height is: " + height);    // Display the height
     if(width >= 800) {
     	$("#contactform").attr("class", "commentform col-lg-8 col-lg-offset-4 col-md-8 col-md-offset-5 col-sm-8 col-sm-offset-4");
     } else if (width < 800 && width > 420){

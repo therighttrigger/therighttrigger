@@ -27,8 +27,6 @@ function jqUpdateSize(){
     var width = $(window).width();
     var height = $(window).height();
 
-    console.log("Width is: " + width);      // Display the width
-    console.log("Height is: " + height);    // Display the height
     if(width < 1113) {
 	    $("#reviewlist").css("margin-left", "10%").css("margin-right", "10%");
     } else if(width < 862) {
