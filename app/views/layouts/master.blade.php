@@ -64,7 +64,7 @@
 					©The Right Trigger Reviews: 2012-2016
 				</div>
 				<div class="col-lg-6">
-					reagan.wilkins@gmail.com
+					therighttriggerreviews@gmail.com
 				</div>
 			</div>
 		</div>
