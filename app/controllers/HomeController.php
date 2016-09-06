@@ -15,6 +15,12 @@ class HomeController extends BaseController {
 	|
 	*/
 
+	// public function __construct()
+	// {
+	// 	parent::__construct();
+	// 	$this->beforeFilter('')
+	// }
+
 	public function homepage() {
 		return View::make('homepage');
 	}
@@ -47,6 +53,12 @@ class HomeController extends BaseController {
 		$review->title = Input::get('title');
 		$review->slug = Input::get('slug');
 		$review->body = Input::get('body');
+		$imagename = Input::file('cover');
+		$originalname = $imagename->getClientOriginalName();
+		$imagepath = 'public/img/uploads/';
+		$imagename->move($imagepath, $originalname);
+		$review->cover = $imagepath . $originalname;
+		$review->score = Input::get('score');
 		$review->save(); 
 		return Redirect::action('HomeController@index');
 	}
@@ -126,14 +138,16 @@ class HomeController extends BaseController {
 	}
 	
 	public function index() {
-		$reviews = Review::all();
+		$reviews = Review::orderBy('created_at', 'desc')->get();
 		return View::make('index')->with('reviews', $reviews);
 	}
 	public function showreview($slug) {
 		$reviewtitle = DB::table('reviews')->where('slug', $slug)->pluck('title');
 		$reviewbody = DB::table('reviews')->where('slug', $slug)->pluck('body');
+		$reviewcover = DB::table('reviews')->where('slug', $slug)->pluck('cover');
+		$score = DB::table('reviews')->where('slug', $slug)->pluck('score');
 		if($reviewtitle != null) {
-			return View::make('show')->with('reviewtitle', $reviewtitle)->with('reviewbody', $reviewbody);
+			return View::make('show')->with('reviewtitle', $reviewtitle)->with('reviewbody', $reviewbody)->with('reviewcover', $reviewcover)->with('score', $score);
 		} else {
 			App::abort(404);
 		}
