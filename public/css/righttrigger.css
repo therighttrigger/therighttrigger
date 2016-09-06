@@ -143,3 +143,14 @@ a:hover {
 .bottomofpage {
 	margin-bottom: 10%;
 }
+.recent {
+	overflow-y: hidden;
+}
+.rightbutton {
+	margin-top: 150%;
+	height: 34px;
+	width: 34px;
+}
+.homecare {
+	margin-top: -30px;
+}

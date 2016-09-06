@@ -71,6 +71,7 @@
 	</div>
 
 <script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
 	@yield('bottom-script')
 </body>
 </html>
