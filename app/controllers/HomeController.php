@@ -22,7 +22,9 @@ class HomeController extends BaseController {
 	// }
 
 	public function homepage() {
-		return View::make('homepage');
+		$reviews = Review::orderBy('created_at', 'desc')->paginate(5);
+		$first = $reviews->first();
+		return View::make('homepage')->with('reviews', $reviews)->with('first', $first);
 	}
 
 	public function verify() {

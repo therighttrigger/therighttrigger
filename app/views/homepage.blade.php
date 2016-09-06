@@ -19,7 +19,16 @@
 		</ol>
 
 		<div class="carousel-inner" role="listbox">
-			<div class="item active">
+			@foreach($reviews as $review)
+				@if($review->title == $first->title)
+					<div class="item active">
+				@else
+					<div class="item">
+				@endif
+						<a href="{{{action('HomeController@showreview', $review->slug)}}}"><img class="carim" src="{{{$review->cover}}}"></a>
+					</div>
+			@endforeach
+			{{-- <div class="item active">
 				<img class="carim" src="/img/inside.png">
 			</div>
 			<div class="item">
@@ -33,7 +42,7 @@
 			</div>
 			<div class="item">
 				<img class="carim" src="/img/abzu.png">
-			</div>
+			</div> --}}
 		</div>
 
 		<a class="left carousel-control" href="#recent" role="button" data-slide="prev">
