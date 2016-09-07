@@ -50,7 +50,9 @@
 			<span class="sr-only">Previous</span>
 		</a>
 		<a class="right carousel-control" href="#recent" role="button" data-slide="next">
-			<span aria-hidden="true"><img class="rightbutton" src="/img/button.png"></span>
+			<span aria-hidden="true">
+				<img class="rightbutton" src="/img/button.png">
+			</span>
 			<span class="sr-only">Next</span>
 		</a>
 	</div>

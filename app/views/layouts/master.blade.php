@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<title>The Right Trigger Reviews: Fair, Biased, Truthful</title>
 	<link rel="icon" type="image/png" href="/img/button.png">
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
@@ -8,7 +10,7 @@
 	@yield('top-script')
 </head>
 <body>
-	<div class="navbar navbar-fixed-top">
+	<div class="navbar">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
 				<img src="/img/button.png">
@@ -57,7 +59,7 @@
 	@if(Request::url() !== "righttrigger.dev")
 		<div class="bottomofpage"></div>
 	@endif
-	<div class="footer navbar-fixed-bottom">
+	<footer class="footer navbar-fixed-bottom">
 		<div class="col-lg-12 text-center">
 			<div class="foot">
 				<div class="col-lg-6">
@@ -68,7 +70,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</footer>
 
 <script type="text/javascript" src="/js/jquery.js"></script>
 <script type="text/javascript" src="/js/bootstrap.js"></script>
