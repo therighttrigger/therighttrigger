@@ -54,7 +54,6 @@ class HomeController extends BaseController {
 		$review = new Review();
 		$review->title = Input::get('title');
 		$review->slug = Input::get('slug');
-		$review->body = Input::get('body');
 		$imagename = Input::file('cover');
 		$originalname = $imagename->getClientOriginalName();
 		$imagepath = 'public/img/uploads/';
@@ -108,6 +107,34 @@ class HomeController extends BaseController {
 		$review->verdict = $verdict;
 		$review->save(); 
 		return Redirect::action('HomeController@index');
+	}
+
+	public function showsection($slug) {
+		if(Auth::check()) {
+			return View::make('createsection')->with('slug', $slug);
+		} else {
+			return Redirect::action('HomeController@verify');
+		}
+	}
+
+	public function storesection($slug) {
+		if(Auth::check()) {
+			$review = DB::table('reviews')->where('slug', $slug)->pluck('id');
+			$section = new Section();
+			$section->review_id = $review;
+			$section->body = Input::get('body');
+			$imagename = Input::file('image');
+			if($imagename != null) {
+				$originalname = $imagename->getClientOriginalName();
+				$imagepath = 'public/img/uploads/';
+				$imagename->move($imagepath, $originalname);
+				$section->image = $imagepath . $originalname;
+			}
+			$section->save();
+			return Redirect::action('HomeController@showsection', $slug);
+		} else {
+			return Redirect::action('HomeController@verify');
+		}
 	}
 
 	public function edit($slug) {
@@ -189,23 +216,25 @@ class HomeController extends BaseController {
 		return View::make('index')->with('reviews', $reviews);
 	}
 	public function showreview($slug) {
-		$reviewtitle = DB::table('reviews')->where('slug', $slug)->pluck('title');
-		$reviewbody = DB::table('reviews')->where('slug', $slug)->pluck('body');
-		$reviewcover = DB::table('reviews')->where('slug', $slug)->pluck('cover');
-		$score = DB::table('reviews')->where('slug', $slug)->pluck('score');
-		$verdict = DB::table('reviews')->where('slug', $slug)->pluck('verdict');
-		$width = ($score * 10) * 3.7;
-		if($width > 277.5) {
+		$reviewid = DB::table('reviews')->where('slug', $slug)->pluck('id');
+		$review = Review::find($reviewid);
+		// $reviewtitle = DB::table('reviews')->where('slug', $slug)->pluck('title');
+		// $reviewcover = DB::table('reviews')->where('slug', $slug)->pluck('cover');
+		// $score = DB::table('reviews')->where('slug', $slug)->pluck('score');
+		// $verdict = DB::table('reviews')->where('slug', $slug)->pluck('verdict');
+		$width = ($review->score * 10) * 3.7;
+		if($review->score >= 7.5) {
 			$color = "green";
-		} else if($width <= 277.5 && $width > 181.3) {
+		} else if($review->score < 7.4 && $review->score >= 5.0) {
 			$color = "yellow";
-		} else if($width <= 181.3 && $width > 107.3) {
+		} else if($review->score < 5.0 && $review->score >= 3.0) {
 			$color = "orange";
-		} else if($width <= 107.3) {
+		} else if($review->score < 3.0) {
 			$color = "red";
 		}
-		if($reviewtitle != null) {
-			return View::make('show')->with('reviewtitle', $reviewtitle)->with('reviewbody', $reviewbody)->with('reviewcover', $reviewcover)->with('score', $score)->with('verdict', $verdict)->with('width', $width)->with('color', $color);
+		$sections = DB::table('sections')->where('review_id', $review->id)->get();
+		if($review != null) {
+			return View::make('show')->with('review', $review)->with('width', $width)->with('color', $color)->with('sections', $sections);
 		} else {
 			App::abort(404);
 		}

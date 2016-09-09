@@ -33,6 +33,10 @@ Route::get('/reviews', 'HomeController@index');
 
 Route::get('/reviews/{slug}', 'HomeController@showreview');
 
+Route::get('/reviews/{slug}/add', 'HomeController@showsection');
+
+Route::post('/reviews/{slug}/add', 'HomeController@storesection');
+
 Route::get('/reviews/{slug}/edit', 'HomeController@edit');
 
 Route::post('/reviews/{slug}/edit', 'HomeController@update');

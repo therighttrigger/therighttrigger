@@ -183,8 +183,18 @@ a:hover {
 	height: 22px;
 	/*width: 50px;*/
 }
+#results {
+	margin-top: 100%;
+}
+.reviewimage {
+	width: 100%;
+}
 .numberscore {
 	width: 370px;
+}
+.showreviewcover {
+	width: 100%;
+	height: 400px;
 }
 /*.pointfirsthalf {
 	height: 30px;
