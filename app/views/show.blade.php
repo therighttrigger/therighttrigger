@@ -4,7 +4,13 @@
 	<img src="../{{{$reviewcover}}}">
 	<h1>"{{{$reviewtitle}}}"</h1>
 	<p class="reviewBody">{{$reviewbody}}</p>
-	<h2>{{{$score}}}</h2>
+	<h1>{{{$score}}}/10</h1>
+	<div class="visualscore">
+		<div style="width: {{{$width}}}px; background-color: {{{$color}}};" class="point text-center">
+		</div>
+	</div>
+	<h1>{{{$verdict}}}</h1>
+	{{{$width}}}
 	<br><br><br><br><br>
 </div>
 @stop

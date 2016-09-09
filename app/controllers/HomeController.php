@@ -60,7 +60,52 @@ class HomeController extends BaseController {
 		$imagepath = 'public/img/uploads/';
 		$imagename->move($imagepath, $originalname);
 		$review->cover = $imagepath . $originalname;
-		$review->score = Input::get('score');
+		$score = Input::get('score');
+		$review->score = $score;
+		if($score == 10) {
+			$verdict = "Masterpiece";
+		} else if($score < 10 && $score >= 9.5) {
+			$verdict = "Absolutely Outstanding";
+		} else if($score < 9.5 && $score >= 9.0) {
+			$verdict = "Fantastic";
+		} else if($score < 9.0 && $score >= 8.5) {
+			$verdict = "Quite Good";
+		} else if($score < 8.5 && $score >= 8.0) {
+			$verdict = "Good";
+		} else if($score < 8.0 && $score >= 7.5) {
+			$verdict = "Acceptable";
+		} else if($score < 7.5 && $score >= 7.0) {
+			$verdict = "Ok";
+		} else if($score < 7.0 && $score >= 6.5) {
+			$verdict = "Fine, I Guess";
+		} else if($score < 6.5 && $score >= 6.0) {
+			$verdict = "Slightly Above Average";
+		} else if($score < 6.0 && $score >= 5.5) {
+			$verdict = "Barely Above Average";
+		} else if($score < 5.5 && $score >= 5.0) {
+			$verdict = "Mediocre";
+		} else if($score < 5.0 && $score >= 4.5) {
+			$verdict = "Slightly Below Average";
+		} else if($score < 4.5 && $score >= 4.0) {
+			$verdict = "Below Average";
+		} else if($score < 4.0 && $score >= 3.5) {
+			$verdict = "Not Good";
+		} else if($score < 3.5 && $score >= 3.0) {
+			$verdict = "Really Not Good";
+		} else if($score < 3.0 && $score >= 2.5) {
+			$verdict = "Bad";
+		} else if($score < 2.5 && $score >= 2.0) {
+			$verdict = "Awful";
+		} else if($score < 2.0 && $score >= 1.5) {
+			$verdict = "Terrible";
+		} else if($score < 1.5 && $score >= 1.0) {
+			$verdict = "Unacceptable";
+		} else if($score < 1.0 && $score >= 0.5) {
+			$verdict = "Borderline Unplayable";
+		} else if($score < 0.5 && $score >= 0) {
+			$verdict = "Unplayable";
+		}
+		$review->verdict = $verdict;
 		$review->save(); 
 		return Redirect::action('HomeController@index');
 	}
@@ -148,8 +193,19 @@ class HomeController extends BaseController {
 		$reviewbody = DB::table('reviews')->where('slug', $slug)->pluck('body');
 		$reviewcover = DB::table('reviews')->where('slug', $slug)->pluck('cover');
 		$score = DB::table('reviews')->where('slug', $slug)->pluck('score');
+		$verdict = DB::table('reviews')->where('slug', $slug)->pluck('verdict');
+		$width = ($score * 10) * 3.7;
+		if($width > 277.5) {
+			$color = "green";
+		} else if($width <= 277.5 && $width > 181.3) {
+			$color = "yellow";
+		} else if($width <= 181.3 && $width > 107.3) {
+			$color = "orange";
+		} else if($width <= 107.3) {
+			$color = "red";
+		}
 		if($reviewtitle != null) {
-			return View::make('show')->with('reviewtitle', $reviewtitle)->with('reviewbody', $reviewbody)->with('reviewcover', $reviewcover)->with('score', $score);
+			return View::make('show')->with('reviewtitle', $reviewtitle)->with('reviewbody', $reviewbody)->with('reviewcover', $reviewcover)->with('score', $score)->with('verdict', $verdict)->with('width', $width)->with('color', $color);
 		} else {
 			App::abort(404);
 		}
