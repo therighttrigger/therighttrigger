@@ -54,11 +54,13 @@ class HomeController extends BaseController {
 		$review = new Review();
 		$review->title = Input::get('title');
 		$review->slug = Input::get('slug');
-		$imagename = Input::file('cover');
-		$originalname = $imagename->getClientOriginalName();
-		$imagepath = 'public/img/uploads/';
-		$imagename->move($imagepath, $originalname);
-		$review->cover = $imagepath . $originalname;
+		$review->tagline = Input::get('tagline');
+		// $imagename = Input::file('cover');
+		// $originalname = $imagename->getClientOriginalName();
+		// $imagepath = 'public/img/uploads/';
+		// $imagename->move($imagepath, $originalname);
+		// $review->cover = $imagepath . $originalname;
+		$review->cover = Input::get('cover');
 		$score = Input::get('score');
 		$review->score = $score;
 		if($score == 10) {
@@ -123,12 +125,15 @@ class HomeController extends BaseController {
 			$section = new Section();
 			$section->review_id = $review;
 			$section->body = Input::get('body');
-			$imagename = Input::file('image');
-			if($imagename != null) {
-				$originalname = $imagename->getClientOriginalName();
-				$imagepath = 'public/img/uploads/';
-				$imagename->move($imagepath, $originalname);
-				$section->image = $imagepath . $originalname;
+			// $imagename = Input::file('image');
+			// if($imagename != null) {
+			// 	$originalname = $imagename->getClientOriginalName();
+			// 	$imagepath = 'public/img/uploads/';
+			// 	$imagename->move($imagepath, $originalname);
+			// 	$section->image = $imagepath . $originalname;
+			// }
+			if(Input::get('image') != null) {
+				$section->image = Input::get('image');
 			}
 			$section->save();
 			return Redirect::action('HomeController@showsection', $slug);
@@ -153,7 +158,11 @@ class HomeController extends BaseController {
 			$reviewtoupdate = Review::find($review);
 			$reviewtoupdate->title = Input::get('title');
 			$reviewtoupdate->slug = Input::get('slug');
-			$reviewtoupdate->body = Input::get('body');
+			$reviewtoupdate->tagline = Input::get('tagline');
+			$reviewtoupdate->score = Input::get('score');
+			if(Input::get('cover') != null) {
+				$reviewtoupdate->cover = Input::get('cover');
+			}
 			$reviewtoupdate->save();
 			Session::flash('successMessage', 'Review sucessfully edited');
 			return Redirect::action('HomeController@index');

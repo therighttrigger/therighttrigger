@@ -16,6 +16,7 @@ class CreateReviewsTable extends Migration {
 			$table->increments('id');
 			$table->string('title', 100);
 			$table->string('slug', 100);
+			$table->string('tagline');
 			$table->decimal('score');
 			$table->string('verdict');
 			$table->text('cover');

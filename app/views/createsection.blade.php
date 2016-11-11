@@ -4,7 +4,8 @@
 {{Form::open(array('class' => 'form-horizontal col-lg-8 col-lg-offset-3', 'method' => 'POST', 'action' => array('HomeController@storesection', $slug), 'files' => 'true'))}}
 <div class="form-group">
 	<label for="image">Image</label>
-	<input type="file" name="image">
+	<input name="image" type="filepicker" data-fp-apikey="Aj0sZneHYQeiqIEnkLzaiz"
+onchange="alert(event.fpfile.url)">
 </div>
 <div class="form-group">
 	<textarea name="body" id="editor1"></textarea>
@@ -13,6 +14,7 @@
 	<button class="btn btn-primary" type="submit">Submit</button>
 </div>
 {{Form::close()}}
+<script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
 @stop
 
 @section('bottom-script')
