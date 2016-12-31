@@ -2,8 +2,8 @@
 @section('content')
 	<h1 class="reviewindexheading text-center">Reviews</h1>
 		@foreach($reviews as $review)
-		<div class="">
-			<h4 class="summary">
+		<div class="summary">
+			<h4>
 				{{-- <div class="row"> --}}
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
