@@ -5,8 +5,7 @@
 		<div class="">
 			<h4 class="summary">
 				{{-- <div class="row"> --}}
-					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-					<div class="indexsection">
+					<div class="col-lg-8 col-lg-offset-2 col-md-8 col-lg-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
 						<a href="/reviews/{{{$review->slug}}}"><img class="indeximage" src="{{{$review->cover}}}"></a>
 					</div>
 					<div class="text-center col-lg-8 col-md-8 col-sm-8 col-xs-8">
