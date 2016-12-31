@@ -3,15 +3,15 @@
 	<h1 class="reviewindexheading text-center">Reviews</h1>
 	<ul>
 		@foreach($reviews as $review)
-		<div class="summary">
+		<div class="text-center summary">
 			<li><h4 class="summary">
-				<div class="row">
-					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-						<a href="/reviews/{{{$review->slug}}}"><img class="indeximage" src="{{{$review->cover}}}"></a>
-					</div>
-					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				{{-- <div class="row"> --}}
+					{{-- <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8"> --}}
+						{{-- <a href="/reviews/{{{$review->slug}}}"><img class="indeximage" src="{{{$review->cover}}}"></a> --}}
+					{{-- </div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> --}}
 						{{{$review->tagline}}}
-					</div>
+					{{-- </div> --}}
 				{{-- 	<div class="col-lg-4 hidden-md hidden-sm hidden-xs">
 						{{Str::limit($review->body, 400)}}
 					</div>
@@ -24,7 +24,7 @@
 					<div class="hidden-lg hidden-md hidden-sm col-xs-4">
 						{{Str::limit($review->body, 100)}}
 					</div> --}}
-				</div>
+				{{-- </div> --}}
 			</h4></li>
 		</div>
 		@endforeach
