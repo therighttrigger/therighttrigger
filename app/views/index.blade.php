@@ -1,10 +1,9 @@
 @extends('layouts.master')
 @section('content')
 	<h1 class="reviewindexheading text-center">Reviews</h1>
-	<ul>
 		@foreach($reviews as $review)
-		<div class="text-center summary indexsection">
-			<li><h4 class="summary indexsection">
+		<div class="">
+			<h4 class="summary">
 				{{-- <div class="row"> --}}
 					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
 					<div class="indexsection">
@@ -27,10 +26,9 @@
 						{{Str::limit($review->body, 100)}}
 					</div> --}}
 				{{-- </div> --}}
-			</h4></li>
+			</h4>
 		</div>
 		@endforeach
-	</ul>
 @stop
 @section('bottom-script')
 <script type="text/javascript">
