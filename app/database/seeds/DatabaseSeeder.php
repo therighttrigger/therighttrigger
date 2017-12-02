@@ -13,13 +13,13 @@ class DatabaseSeeder extends Seeder {
 
 		// DB::table('reviews')->delete();
 		// DB::table('subscribers')->delete();
-		// DB::table('comments')->delete();
+		DB::table('comments')->delete();
 		// DB::table('users')->delete();
 		
 
 		// $this->call('ReviewsSeeder');
 		// $this->call('SubscribersSeeder');
-		// $this->call('CommentsSeeder');
+		$this->call('CommentsSeeder');
 		$this->call('AdminSeeder');
 	}
 
