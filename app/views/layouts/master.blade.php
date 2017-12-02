@@ -63,7 +63,7 @@
 		<div class="col-lg-12 text-center">
 			<div class="foot">
 				<div class="col-lg-6">
-					©The Right Trigger Reviews: 2012-2016
+					©The Right Trigger Reviews: 2012-2017
 				</div>
 				<div class="col-lg-6">
 					therighttriggerreviews@gmail.com
